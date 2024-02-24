@@ -4,7 +4,7 @@ from moduls.utils import utils
 from moduls.utils.buttons import keymakers
 
 # Controlando el mensaje con las siguientes características
-@Client.on_message(filters.command(["start", "iniciar", "inicio"], prefixes=["!", "/", "."]) | filters.text)
+@Client.on_message(filters.command(["start", "iniciar", "inicio"], prefixes=["!", "/", "."]) & filters.text)
 async def start(client, response):
     postdata = utils.get_postdata("start")
 
