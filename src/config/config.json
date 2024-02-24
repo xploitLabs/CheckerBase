@@ -1,0 +1,10 @@
+{
+    "platform": "Telegram",
+    "name": "SET HERE THE NAME BOT",
+    "mention": "@bot",
+    "url": "https://t.me/bot",
+    "api_id": 0,
+    "api_hash": "SET HERE THE API HASH",
+    "bot_token": "SET HERE THE BOT TOKEN",
+    "dir_plugins": "apps"
+}
