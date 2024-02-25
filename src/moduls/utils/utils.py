@@ -1,31 +1,39 @@
-import os, json, importlib, sys
+import os, json
+import pickle, random
 
-def send_postdata(file_id, postdata):
-    data = f'content = "{postdata}"'
-    dir_principal = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
-    route = os.path.join(dir_principal, 'moduls', 'postdata', f'{file_id}.py')
-    if postdata.isdigit():
-        data = f'content = {postdata}'
-    open(route, "w").write(data)
+# VAR
+DIRPOSTSAVED = "moduls/postdata/postdataSaved.pkl"
 
-def get_postdata(file_id):
+def getX(): 
+    if os.path.exists(DIRPOSTSAVED):
+        file = open(DIRPOSTSAVED, "rb")
+        content = pickle.load(file)
+        return content
+    return {}
+
+def saveVAR(var):
+    code = genCode()
+    diccionario = getX()
+    diccionario[code] = var
+    file = open(DIRPOSTSAVED, "wb")
+    pickle.dump(diccionario, file)
+    return code
+
+def getVAR(code, delete=True):
     try:
-        module_name = f"moduls.postdata.{file_id}"
-        module = importlib.import_module(module_name)
-        variable = module.content
-        
-        # Eliminar el archivo start.py
-        module_path = module.__file__
-        if os.path.exists(module_path):
-            os.remove(module_path)
-        
-        # Eliminar el módulo importado
-        if module_name in sys.modules:
-            del sys.modules[module_name]
-        
-        return variable
-    except ModuleNotFoundError:
+        diccionario = getX()
+        data = diccionario.get(code, None)
+        if delete:
+            del diccionario[code]
+            file = open(DIRPOSTSAVED, "wb")
+            pickle.dump(diccionario, file)
+        return data
+    except KeyError:
         return None
+
+def genCode(length=7):
+    return "VAR:"+''.join(random.choices('0123456789ABCDEF', k=length))
+
     
 def clear_terminal():
   os.system('cls' if os.name == 'nt' else 'clear')

@@ -6,9 +6,7 @@ import requests, json
 
 # Control text messages with the "ipquery", "ip", "ipQ" commands
 @Client.on_message(filters=filters.command(["ipuery", "ip", "ipQ"], prefixes=["/"]) & filters.text)
-async def ipQuery(client, response):
-    postdata = utils.get_postdata("ipQ") # Query the 2 ID postdata
-
+async def ipQuery(client, response, postdata):
     if not postdata:
         message = """Query data from any public IP address with:
 

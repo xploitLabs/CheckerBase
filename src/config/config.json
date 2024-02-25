@@ -1,10 +1,10 @@
 {
     "platform": "Telegram",
-    "name": "SET HERE THE NAME BOT",
-    "mention": "@bot",
-    "url": "https://t.me/bot",
-    "api_id": 0,
-    "api_hash": "SET HERE THE API HASH",
-    "bot_token": "SET HERE THE BOT TOKEN",
+    "name": "relu",
+    "mention": "@reluiabot",
+    "url": "https://t.me/reluiabot",
+    "api_id": 26981189,
+    "api_hash": "0793407482789e11f5591b751498051c",
+    "bot_token": "6031483483:AAGECcnUKBZUGLPPwtz2q0vQVUkpaLsliaA",
     "dir_plugins": "apps"
 }
