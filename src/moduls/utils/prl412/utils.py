@@ -1,6 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
-import random
+import random, re
+
+def is_ip(data):
+    return re.match(r'^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$', data)
 
 def consultar(tech):
     DICTY = []

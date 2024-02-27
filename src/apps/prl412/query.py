@@ -1,7 +1,7 @@
 # Importando los modulos
 from pyrogram import Client, filters
 from moduls.utils import utils
-from apps.prl412.utils import prl412
+from moduls.utils.prl412 import utils
 from moduls.utils import buttons
 
 # Creando el filtrador de mensajes
@@ -29,7 +29,7 @@ async def queryPRL(clientC, responseR, postdata=0):
         TEXT_FILTRADO = postdata if postdata else COMANDO
         # Cuando el sistema esté a punto de enviar el comando al sistema PRL412, enviará el sticker
         sticker = await utils.loading_message(responseR, 0)
-        respuesta_de_prl412 = prl412.consultar(TEXT_FILTRADO)
+        respuesta_de_prl412 = utils.consultar(TEXT_FILTRADO)
         # Cuando el sistema PRL412 haya respondido, el sistema eliminará el sticker y enviará la respuesta
         await sticker.delete()
         sitios = "\n".join(respuesta_de_prl412)
