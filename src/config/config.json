@@ -1,10 +1,10 @@
 {
     "platform": "Telegram",
-    "name": "bot",
-    "mention": "@tubot",
-    "url": "https://t.me/tubot",
-    "api_id": 0,
-    "api_hash": "PON ACA TU API HASH",
-    "bot_token": "PON ACA TU API TOKEN",
+    "name": "relu",
+    "mention": "@reluiabot",
+    "url": "https://t.me/reluiabot",
+    "api_id": 26981189,
+    "api_hash": "0793407482789e11f5591b751498051c",
+    "bot_token": "6031483483:AAGECcnUKBZUGLPPwtz2q0vQVUkpaLsliaA",
     "dir_plugins": "apps"
 }

@@ -4,10 +4,6 @@ from moduls.utils.utils import getVAR
 from apps.basics import welcome
 from apps.basics import api_sample
 
-from apps.prl412 import query
-
-from apps.tools import ip
-
 @Client.on_callback_query()
 async def controler(cliente, data_response):
     data = data_response.data
@@ -38,12 +34,6 @@ async def controler(cliente, data_response):
 
     elif function_name == "rm":
         await data_response.message.delete()
-
-    elif function_name == "prl412":
-        await query.queryPRL(cliente, data_response.message, postdata)
-
-    elif function_name == "queryIP":
-        await ip.queryIP(cliente, data_response.message, postdata)
 
     else:
         await cliente.answer_callback_query(
