@@ -1,2 +1,5 @@
-__pycache__/
-*.session
+__pycache__
+.pytest_cache
+.coverage
+.mypy_cache
+.venv
